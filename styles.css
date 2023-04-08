@@ -1,0 +1,61 @@
+body {
+    background-image: url(./pexels-fwstudio-172292.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.wrapper {
+    position: absolute;
+    top: 1px;
+    left: 20px;
+    transform: translate(50%, 50%);
+    height: 400px;
+    width: 700px;
+    background-color: rgb(130, 41, 41);
+    border-radius: 40px;
+}
+
+#disp {
+    background-color: white;
+    height: 160px;
+    border-radius: 20px;
+    overflow-x: auto;
+    text-align: left;
+    padding: 5px 2px;
+}
+
+.content {
+    width: 80%;
+    text-align: center;
+    margin-top: 80px;
+    margin-left: 50px;
+}
+
+.image {
+    position: absolute;
+    top: -30px;
+    left: 320px;
+    border-radius: 50%;
+}
+
+input {
+    height: 30px;
+    border-radius: 10px;
+    width: 66%;
+    caret-color: black;
+    padding: 10px;
+    outline-color: red;
+}
+
+#btn {
+    padding: 4px;
+    border-radius: 10px;
+    align-items: center;
+}
+
+button:hover {
+    opacity: 0.6;
+    cursor: grab;
+}

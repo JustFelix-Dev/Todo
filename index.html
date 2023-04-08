@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo-Mini</title>
+    <link rel="shortcut icon" href="./pexels-fwstudio-172292.jpg" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/b1c5b9dbea.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+     <div class="wrapper">
+        <img src="./checkmark.png" width="75px" ; height="75px" class="image" alt="">
+        <div class="content">
+            <input type="text" id="input"> <br><br>
+            <button style="background-color:blue; color:white;padding:10px;border-radius:25px;" onclick="add()">Add Todo
+                <i class="fa-solid fa-square-check"></i></button>
+            <button style="background-color:gray; color:white;padding:10px;border-radius:25px;" onclick="delAll()">
+                Delete All</button>
+            <br><br>
+            <div id="disp">
+            </div>
+        </div>
+
+    </div>
+    <script>
+           var todoList = []
+        function add() {
+            if(input.value ==''){
+              alert('Check your Input')
+            }else{
+                var userInput = input.value
+                todoList.push(userInput)
+                input.value = ""
+                display()
+            }
+        }
+        function display() {
+            disp.innerHTML = ""
+            for (let index = 0; index < todoList.length; index++) {
+
+                disp.innerHTML += `<code>${index + 1}. ${todoList[index]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </code> <button onclick="edit(${index})" id="btn" style="background-color:yellow;color:black">Edit</button>
+        <button onclick="del(${index})" id="btn"style="background-color:red;color:white">Delete</button><br><br>`
+            }
+        }
+
+        function delAll() {
+            userResponse = confirm('Are you sure you would like to delete all items ?')
+            if (userResponse == true) {
+                todoList.splice(0, todoList.length)
+                disp.innerHTML = `<code>${todoList}</code>`
+            } else {}
+        }
+
+        function del(userIndex) {
+           response=confirm('This would be permanently be deleted. Sure ?')
+            if(response == true){
+                todoList.splice(userIndex,1)
+            display()
+            }else{}
+        }
+
+        function edit(userList){
+            var inp1 = prompt('What would you love to be here ?')
+            if(!inp1){
+                display(userList)
+           }else{
+                todoList.splice(userList,1,inp1)
+                display()
+            }
+        }
+
+    </script>
+</body>
+</html>
